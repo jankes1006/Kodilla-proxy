@@ -20,7 +20,6 @@ public class WeatherServiceProxy implements WeatherService {
 
     private void initWeatherService() throws InterruptedException {
         if (Objects.isNull(weatherService)) {
-            System.out.println("No hej");
             weatherService = new WeatherServiceImpl();
         }
     }

@@ -10,6 +10,10 @@ public class WeatherServiceImpl implements WeatherService {
     private final static String WEATHER_UPDATE = "Pobrano nową temperaturę. Wynosi ona: %d";
     private int temperature = 20;
 
+    public WeatherServiceImpl() throws InterruptedException {
+        this.refreshData();
+    }
+
     @Override
     public String getWeather() {
         return format(WEATHER_MESSAGE, temperature);
@@ -18,7 +22,7 @@ public class WeatherServiceImpl implements WeatherService {
     @Override
     public String refreshData() throws InterruptedException {
         Thread.sleep(5000);
-        temperature = new Random().nextInt(100);
+        temperature = new Random().nextInt(20);
         return format(WEATHER_UPDATE, temperature);
     }
 }
